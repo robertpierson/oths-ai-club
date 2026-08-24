@@ -45,8 +45,9 @@ main,header,footer{position:relative;z-index:1}
   background:rgba(6,9,16,.74);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;gap:20px;height:70px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
-.brand img{width:40px;height:40px;border-radius:10px;object-fit:cover;
-  box-shadow:0 0 0 1px var(--line-hi),0 8px 22px rgba(0,0,0,.55)}
+/* logo is a round badge — no square plate or ring, it has its own border */
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:contain;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.55))}
 .brand b{font-family:var(--display);font-size:15.5px;display:block;white-space:nowrap}
 .brand .sc{display:block;font:500 9.5px/1 var(--mono);color:var(--muted);letter-spacing:.18em;margin-top:5px}
 .links{display:flex;gap:2px;align-items:center}
@@ -83,10 +84,17 @@ main,header,footer{position:relative;z-index:1}
 .lede{color:var(--grey);font-size:18px;max-width:53ch;margin:24px 0 34px}
 .cta{display:flex;gap:13px;flex-wrap:wrap}
 .hero-art{position:relative;display:grid;place-items:center}
-.hero-art img{width:min(400px,100%);border-radius:24px;position:relative;
-  box-shadow:0 0 0 1px var(--line-hi),0 44px 100px rgba(0,0,0,.7),0 0 110px rgba(77,155,255,.30)}
-.hero-art:before{content:"";position:absolute;width:82%;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(77,155,255,.36),transparent 68%);filter:blur(42px)}
+.hero-art img{width:min(400px,100%);aspect-ratio:1;object-fit:contain;position:relative;
+  border-radius:50%;animation:float 7s ease-in-out infinite;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.65)) drop-shadow(0 0 70px rgba(77,155,255,.42))}
+@keyframes float{50%{transform:translateY(-12px)}}
+/* soft halo behind the badge, sized to sit just outside its rim */
+.hero-art:before{content:"";position:absolute;width:88%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(77,155,255,.40),transparent 66%);filter:blur(46px)}
+/* faint rotating ring, echoes the badge's circular lettering */
+.hero-art:after{content:"";position:absolute;width:min(440px,112%);aspect-ratio:1;border-radius:50%;
+  border:1px dashed rgba(124,162,210,.20);animation:spin 60s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* ---------- ticker ---------- */
 .ticker{margin-top:82px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
@@ -269,7 +277,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 42px;margin-top:44px;back
 @media (prefers-reduced-motion:reduce){
   .js .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
-  .track,.dot{animation:none}
+  .track,.dot,.hero-art img,.hero-art:after{animation:none}
 }
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue-lt);outline-offset:3px;border-radius:8px}
 
