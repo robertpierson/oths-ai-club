@@ -9,10 +9,12 @@
   --bg-2:#0e1118;
   --fg:#f3f6fa;
   --dim:#98a1b0;
-  --faint:#616b7c;
+  --faint:#8590a0;  /* was #616b7c — 3.6:1 on the ground, failed AA at 13px */
   --rule:rgba(255,255,255,.09);
   --rule-hi:rgba(255,255,255,.22);
-  --accent:#6aa6ff;
+  --accent:#5d9bff;      /* type + interactive on the dark ground */
+  --accent-field:#3d7ef5; /* solid fills */
+  --on-accent:#05070b;    /* type on a solid fill */
 
   --ease:cubic-bezier(.17,.84,.44,1);
   --d-fast:160ms;
@@ -47,7 +49,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:400}
 .lead{font-size:clamp(16px,1.35vw,18.5px);line-height:1.55;color:var(--dim);max-width:46ch}
 .body{color:var(--dim)}
 .label{display:block;font:500 11px/1 var(--sans);letter-spacing:.16em;
-  text-transform:uppercase;color:var(--faint)}
+  text-transform:uppercase;color:var(--accent)}
 .num{font-variant-numeric:tabular-nums}
 
 /* ---------- rules & sections ---------- */
@@ -68,6 +70,8 @@ section{padding:var(--sec) 0}
   letter-spacing:.14em;color:var(--faint);margin-top:6px;text-transform:uppercase}
 .links{display:flex;align-items:center;gap:30px}
 .links a{font-size:14px;color:var(--dim);transition:color var(--d-mid) var(--ease)}
+/* .links a outranks .btn-solid, so the nav CTA needs its colour restated here */
+.links a.btn-solid{color:var(--on-accent)}
 .burger{display:none;background:none;border:0;color:var(--fg);
   font:400 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;
   padding:10px 0;cursor:pointer}
@@ -78,7 +82,8 @@ section{padding:var(--sec) 0}
   cursor:pointer;
   transition:background-color var(--d-mid) var(--ease),color var(--d-mid) var(--ease),
              border-color var(--d-mid) var(--ease),transform var(--d-fast) var(--ease)}
-.btn-solid{background:var(--fg);color:var(--bg)}
+/* near-black on the blue, not white: white on this field is only 3.8:1 (fails AA) */
+.btn-solid{background:var(--accent-field);color:var(--on-accent)}
 .btn-line{border-color:var(--rule-hi);color:var(--fg)}
 .btn:active{transform:scale(.985)}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -89,13 +94,13 @@ section{padding:var(--sec) 0}
   background:currentColor;transform:scaleX(0);transform-origin:left;
   transition:transform var(--d-mid) var(--ease)}
 
-/* ---------- announcement ---------- */
-.announce{border-bottom:1px solid var(--rule)}
+/* ---------- announcement: solid field, because it is the one urgent thing ---------- */
+.announce{background:var(--accent-field);color:var(--on-accent)}
 .announce .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;
-  padding-top:16px;padding-bottom:16px}
-.announce .label{color:var(--accent)}
-.announce p{margin:0;font-size:14.5px}
-.announce .quiet{color:var(--faint);font-size:13.5px}
+  padding-top:17px;padding-bottom:17px}
+.announce .label{color:var(--on-accent);opacity:.72}
+.announce p{margin:0;font-size:14.5px;font-weight:500}
+.announce .quiet{font-weight:400;font-size:13.5px;opacity:.72}
 
 /* ---------- hero ---------- */
 .hero{padding:clamp(64px,9vw,128px) 0 clamp(72px,10vw,140px)}
@@ -137,6 +142,8 @@ section{padding:var(--sec) 0}
 .tier:not(:first-child){padding-left:30px}
 .tier .price{font:400 clamp(46px,5.4vw,76px)/1 var(--display);letter-spacing:-.045em;margin:22px 0 4px}
 .tier .save{font-size:13px;color:var(--accent)}
+/* the recommended tier is the only price that carries color */
+.tier .pick+.price{color:var(--accent)}
 .tier ul{list-style:none;padding:0;margin:26px 0 0}
 .tier li{padding:12px 0;border-top:1px solid var(--rule);color:var(--dim);font-size:14px}
 .pick{color:var(--fg)}
@@ -175,12 +182,16 @@ section{padding:var(--sec) 0}
 .row .arrow{margin-left:auto;color:var(--faint);flex:none;
   transition:transform var(--d-mid) var(--ease),color var(--d-mid) var(--ease)}
 
-/* ---------- apply ---------- */
+/* ---------- apply: the page's closing color field, bookending the announcement ---------- */
+#apply{background:var(--accent-field);color:var(--on-accent);border-top:0}
 .apply{display:grid;grid-template-columns:180px 1fr;gap:var(--gut);align-items:start}
-.apply p{margin:24px 0 36px;color:var(--dim);max-width:52ch}
+.apply .label{color:var(--on-accent);opacity:.72}
+.apply p{margin:24px 0 36px;color:var(--on-accent);opacity:.82;max-width:52ch}
+#apply .btn-solid{background:var(--bg);color:var(--fg)}
+#apply .btn-line{border-color:rgba(5,7,11,.34);color:var(--on-accent)}
 .roles{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:44px;padding-top:26px;
-  border-top:1px solid var(--rule)}
-.roles span{color:var(--faint);font-size:13.5px}
+  border-top:1px solid rgba(5,7,11,.22)}
+.roles span{color:var(--on-accent);opacity:.66;font-size:13.5px}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--rule);padding:56px 0 64px}
@@ -194,7 +205,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 64px}
 @media (hover:hover) and (pointer:fine){
   .links a:hover{color:var(--fg)}
   .ul:hover:after{transform:scaleX(1)}
-  .btn-solid:hover{background:var(--accent);color:var(--bg)}
+  .btn-solid:hover{background:var(--accent);color:var(--on-accent)}
   .btn-line:hover{border-color:var(--fg)}
   .member:hover .photo img{filter:grayscale(0) contrast(1);transform:scale(1.02)}
   .row:hover{transform:translateX(12px)}
