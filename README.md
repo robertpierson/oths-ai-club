@@ -1,5 +1,7 @@
 # OTHS AI & Machine Learning Club — website
 
+Live: **https://oths-ai-club.vercel.app**
+
 Single static page. No build step, no dependencies.
 
 ## Images to drop in
@@ -23,8 +25,15 @@ python -m http.server 5173
 
 ## Deploy (Vercel)
 
-Push to GitHub, import the repo in Vercel, framework preset **Other**, no build command,
-output directory `.`. That's it.
+Already deployed as the `oths-ai-club` project. To ship a change:
+
+```bash
+npx vercel --prod
+```
+
+The project is **not** yet linked to GitHub, so pushing to `main` does not redeploy on its own.
+To get auto-deploy on push: Vercel dashboard → project → Settings → Git → connect
+`robertpierson/oths-ai-club`.
 
 ## Things to swap later
 
