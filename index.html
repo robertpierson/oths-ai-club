@@ -4,145 +4,132 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OTHS AI &amp; Machine Learning Club</title>
-<meta name="description" content="The AI &amp; Machine Learning Club at Obra D. Tompkins High School. Two tracks: train models and publish research, or vibecode, CAD, and build. Wednesdays 2:45 PM, Room 1661.">
+<meta name="description" content="The AI &amp; Machine Learning Club at Obra D. Tompkins High School. Train models and publish research, or vibecode, CAD, and build. Wednesdays, 2:45 PM, Room 1661.">
 <meta property="og:title" content="OTHS AI &amp; Machine Learning Club">
 <meta property="og:description" content="Train models. Publish research. Build real things. Wednesdays 2:45 PM, Room 1661.">
 <meta property="og:image" content="assets/logo.png">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- gate the scroll-reveal on JS: if the script never runs, the page shows plainly instead of blank -->
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <script>
 document.documentElement.classList.add('js');
-// officer photos: try .jpg, then the other common extensions, then give up and show the initials
+// officer photos: try the common extensions, then collapse the frame entirely
 function photoFallback(img, name) {
   var ext = ['png', 'jpeg', 'webp'], i = +(img.dataset.i || 0);
   if (i < ext.length) { img.dataset.i = i + 1; img.src = 'assets/' + name + '.' + ext[i]; }
-  else img.remove();
+  else { img.closest('.member').classList.add('no-photo'); img.remove(); }
 }
 </script>
 <link rel="stylesheet" href="styles.css">
 <script defer src="app.js"></script>
 </head>
 <body>
-<div class="field" aria-hidden="true"></div>
 
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">
-      <img src="assets/logo.png" alt="OTHS AI Club logo" onerror="this.remove()">
+      <img src="assets/logo.png" alt="" onerror="this.remove()">
       <span>
-        <b>AI &amp; ML CLUB</b>
-        <span class="sc">OBRA D. TOMPKINS HS</span>
+        <b>AI &amp; Machine Learning Club</b>
+        <span>Obra D. Tompkins High School</span>
       </span>
     </a>
     <nav class="links" id="menu">
       <a href="#tracks">Tracks</a>
       <a href="#meetings">Meetings</a>
-      <a href="#membership">Dues</a>
+      <a href="#dues">Dues</a>
       <a href="#officers">Officers</a>
       <a href="#compete">Compete</a>
-      <a class="btn btn-primary" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Sign Up</a>
+      <a class="btn btn-solid" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Sign up</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">Menu</button>
   </div>
 </header>
 
 <main id="top">
 
-<!-- ANNOUNCEMENT -->
 <div class="announce">
   <div class="wrap">
-    <span class="pill"><i class="dot"></i> First Meeting</span>
-    <p><b>Wednesday, September 2</b> &middot; 2:45 PM &middot; Room 1661 &mdash;
-      <span class="treats">free pizza &amp; candy</span></p>
-    <p class="sub-note">Meetings every <b>Wednesday</b> after school. The first one's open to
-      everyone &mdash; just show up.</p>
+    <span class="label">First meeting</span>
+    <p><span class="num">Wednesday, September 2</span> — 2:45 PM, Room 1661. Free pizza and candy.</p>
+    <p class="quiet">Open to everyone. No form, no dues, just show up.</p>
   </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <canvas id="net" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow rv"><i class="dot"></i> Obra D. Tompkins High School &middot; Katy ISD</div>
-        <h1 class="rv">Train models.<br>Publish research.<br><em>Build real things.</em></h1>
-        <p class="lede rv">Two tracks, one club. Learn to build and train AI models and get your
-          research published &mdash; or learn to vibecode, run AI-assisted CAD, and ship things that
-          actually work. Founded and taught by students already doing both.</p>
-        <div class="cta rv">
-          <a class="btn btn-primary" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Sign Up &mdash; Interest Form &rarr;</a>
-          <a class="btn btn-ghost" href="#tracks">See the Tracks</a>
-        </div>
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="d1 rv">Train models.<br>Publish research.<br>Build real things.</h1>
+      <p class="lead rv">Two tracks, one club. Learn to build and train AI models and get your
+        research published — or learn to vibecode, run AI-assisted CAD, and ship things that work.
+        Founded and taught by students already doing both.</p>
+      <div class="cta rv">
+        <a class="btn btn-solid" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Sign up</a>
+        <a class="btn btn-line" href="#tracks">See the tracks</a>
       </div>
-      <div class="hero-art rv">
-        <img src="assets/logo.png" alt="OTHS AI Club falcon logo" onerror="this.remove()">
-      </div>
+    </div>
+    <div class="hero-art rv">
+      <img src="assets/logo.png" alt="OTHS AI &amp; Machine Learning Club" onerror="this.remove()">
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="track" id="tick">
-    <i><b>ICML 2026</b></i><i><b>NeurIPS 2025</b></i><i><b>TMLR</b></i>
-    <i><b>Johns Hopkins</b></i><i><b>Harvard Kempner</b></i><i><b>SfN 2025</b></i>
-    <i><b>arXiv</b></i><i><b>Eon Systems</b></i><i><b>USACO Gold</b></i>
-    <i><b>Reinforcement Learning</b></i><i><b>LLM Safety</b></i><i><b>Connectomics</b></i>
-    <i><b>Vibecoding</b></i><i><b>AI-Assisted CAD</b></i><i><b>Neuroevolution</b></i>
+<!-- FACTS -->
+<div class="wrap">
+  <div class="facts rv">
+    <div class="fact"><b>Wednesdays</b><span class="label">Every week</span></div>
+    <div class="fact"><b>2:45 PM</b><span class="label">After school</span></div>
+    <div class="fact"><b>Room 1661</b><span class="label">Mrs. Dennison</span></div>
+    <div class="fact"><b>$20</b><span class="label">General membership</span></div>
   </div>
 </div>
-
-<section style="padding-top:64px;padding-bottom:0">
-  <div class="wrap">
-    <div class="stats rv" style="margin-top:0">
-      <div class="stat"><b>Wednesdays</b><span>Every Week</span></div>
-      <div class="stat"><b>2:45 PM</b><span>Room 1661</span></div>
-      <div class="stat"><b>$20</b><span>General Membership</span></div>
-      <div class="stat"><b>2 Tracks</b><span>Research &amp; Build</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- TRACKS -->
 <section id="tracks">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">01</div>
-      <div class="tag">Two Tracks</div>
-      <h2 class="h2">Pick your lane. Or do both.</h2>
-      <p class="sub">The club runs two courses side by side, each taught by the officers who
-        actually do that work. Show up to either, or both &mdash; one membership covers everything.</p>
+      <span class="label">01 — Tracks</span>
+      <div>
+        <h2 class="d2">Pick your lane.<br>Or do both.</h2>
+        <p class="lead">Two courses run side by side, each taught by the officers who actually do
+          that work. One membership covers everything.</p>
+      </div>
     </div>
-    <div class="tracks">
-      <div class="track-card rv">
-        <span class="num">Track 01 &mdash; Research</span>
-        <h3>Build models. Publish papers.</h3>
-        <div class="who"><span>Aarav Sinha</span><span>Sharvin Goyal</span></div>
-        <p>The AI course. You learn how models actually work, train your own, run real experiments
-          on them, and write the results up for publication &mdash; the same pipeline your
-          instructors use at ICML and NeurIPS workshops.</p>
-        <ul>
+
+    <div class="track-row rv">
+      <div>
+        <span class="label">Research</span>
+        <p class="who">Aarav Sinha, Sharvin Goyal</p>
+      </div>
+      <div class="track-body">
+        <h3 class="d3">Build models. Publish papers.</h3>
+        <p>You learn how models actually work, train your own, run real experiments, and write the
+          results up for publication — the same pipeline your instructors use at ICML and NeurIPS
+          workshops.</p>
+        <ul class="list">
           <li>Neural networks, reinforcement learning, and LLMs from the ground up</li>
           <li>Design and run your own experiments, not just tutorials</li>
           <li>Write the paper: methods, results, figures, the whole thing</li>
           <li>Submit to high school research symposiums and workshop tracks</li>
         </ul>
       </div>
-      <div class="track-card rv">
-        <span class="num">Track 02 &mdash; Build</span>
-        <h3>Vibecode. CAD. Ship it.</h3>
-        <div class="who"><span>Robert Pierson</span></div>
-        <p>The building course. Use AI as a tool to make real things fast &mdash; full apps, designed
-          parts, working products &mdash; and learn enough to stay the engineer instead of the
-          passenger when the AI gets it wrong.</p>
-        <ul>
+    </div>
+
+    <div class="track-row rv">
+      <div>
+        <span class="label">Build</span>
+        <p class="who">Robert Pierson</p>
+      </div>
+      <div class="track-body">
+        <h3 class="d3">Vibecode. CAD. Ship it.</h3>
+        <p>Use AI as a tool to make real things fast — full apps, designed parts, working products —
+          and learn enough to stay the engineer instead of the passenger when the AI gets it wrong.</p>
+        <ul class="list">
           <li>Vibecoding with AI agents: ship full apps, then learn to review the output</li>
           <li>AI-assisted CAD: prompt or sketch to a real, printable, manufacturable part</li>
-          <li>Websites, bots, tools, hardware &mdash; portfolio pieces you own</li>
+          <li>Websites, bots, tools, hardware — portfolio pieces you own</li>
           <li>Deployment, version control, and how to not lose your work</li>
         </ul>
       </div>
@@ -151,300 +138,237 @@ function photoFallback(img, name) {
 </section>
 
 <!-- WHAT WE DO -->
-<section id="about">
+<section id="about" class="ruled">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">02</div>
-      <div class="tag">What We Do</div>
-      <h2 class="h2">Not a lecture club. A build club.</h2>
-      <p class="sub">Every meeting you either learn a tool, ship something with it, or push a
-        project forward. No prior experience required &mdash; we start people from zero.</p>
+      <span class="label">02 — What we do</span>
+      <div>
+        <h2 class="d2">Not a lecture club.<br>A build club.</h2>
+        <p class="lead">Every meeting you either learn a tool, ship something with it, or push a
+          project forward. No prior experience required.</p>
+      </div>
     </div>
-    <div class="cards">
-      <div class="card rv"><div class="ico">&#129504;</div><h3>Train Real Models</h3>
-        <p>Neural nets, reinforcement learning, and neuroevolution &mdash; built and trained from
-        scratch, not just imported. You'll understand what's happening inside.</p></div>
-      <div class="card rv"><div class="ico">&#128196;</div><h3>Publish Research</h3>
-        <p>Run a real project, write it up, submit it. Our officers have papers at ICML and
-        NeurIPS workshops and will walk you through the process.</p></div>
-      <div class="card rv"><div class="ico">&#9889;</div><h3>Vibecoding</h3>
-        <p>Use AI coding agents to ship full apps fast &mdash; and learn where they break, how to
-        review their output, and how to stay in control.</p></div>
-      <div class="card rv"><div class="ico">&#128208;</div><h3>AI-Assisted CAD</h3>
-        <p>Generative and AI-assisted CAD design: go from a prompt or a sketch to a real,
-        manufacturable, printable part.</p></div>
-      <div class="card rv"><div class="ico">&#128295;</div><h3>Build &amp; Ship</h3>
-        <p>Websites, bots, tools, hardware projects. If you can describe it, we'll help you build
-        it and put it in your portfolio.</p></div>
-      <div class="card rv"><div class="ico">&#127942;</div><h3>Compete</h3>
-        <p>National and international AI competitions as a team, with officers who've done the
-        research circuit coaching your submissions.</p></div>
+    <div class="grid3">
+      <div class="cell rv"><span class="label">Train</span><h3 class="d4">Real models</h3>
+        <p>Neural nets, reinforcement learning, and neuroevolution — built and trained from scratch,
+          not just imported.</p></div>
+      <div class="cell rv"><span class="label">Publish</span><h3 class="d4">Actual research</h3>
+        <p>Run a project, write it up, submit it. Officers with ICML and NeurIPS workshop papers
+          walk you through it.</p></div>
+      <div class="cell rv"><span class="label">Vibecode</span><h3 class="d4">Ship fast</h3>
+        <p>AI coding agents to build full apps — and the judgment to know where they break.</p></div>
+      <div class="cell rv"><span class="label">Design</span><h3 class="d4">AI-assisted CAD</h3>
+        <p>From a prompt or a sketch to a real, manufacturable, printable part.</p></div>
+      <div class="cell rv"><span class="label">Build</span><h3 class="d4">Things you own</h3>
+        <p>Websites, bots, tools, hardware. Portfolio pieces with your name on them.</p></div>
+      <div class="cell rv"><span class="label">Compete</span><h3 class="d4">As a team</h3>
+        <p>National and international AI competitions, with coaching on every submission.</p></div>
     </div>
   </div>
 </section>
 
 <!-- MEETINGS -->
-<section id="meetings">
+<section id="meetings" class="ruled">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">03</div>
-      <div class="tag">Meetings</div>
-      <h2 class="h2">Every Wednesday. Same room. Show up.</h2>
-      <p class="sub">Walk in with nothing but a laptop and a school ID. Come see what it's about
-        before you commit to anything.</p>
+      <span class="label">03 — Meetings</span>
+      <div>
+        <h2 class="d2">Every Wednesday.<br>Same room.</h2>
+        <p class="lead">Walk in with a laptop and a school ID. Come see what it's about before you
+          commit to anything.</p>
+      </div>
     </div>
     <div class="meet rv">
-      <div>
-        <div class="lbl">When</div>
-        <div class="big">Wednesdays<br>2:45 PM</div>
-        <p>Weekly, right after school. Come late if you have to &mdash; just come.</p>
-      </div>
-      <div>
-        <div class="lbl">Where</div>
-        <div class="big">Room 1661</div>
-        <p>Mrs. Dennison's room. She's our sponsor &mdash; dues and forms get turned in to her
-          at the meeting.</p>
-      </div>
-    </div>
-    <div class="note rv">
-      <b>First meeting: Wednesday, September 2.</b> There will be <b>free pizza and candy</b>.
-      You don't need the permission slip or any dues money to come to this one &mdash; bring
-      yourself, find out what the club actually does, and sign up after if you want in.
+      <div><span class="label">When</span><div class="big">Wednesdays<br>2:45 PM</div>
+        <p>Weekly, right after school. Come late if you have to.</p></div>
+      <div><span class="label">Where</span><div class="big">Room 1661</div>
+        <p>Mrs. Dennison's room. She's our sponsor — dues and forms go to her at the meeting.</p></div>
+      <div><span class="label">First one</span><div class="big">Sept 2</div>
+        <p>Free pizza and candy. No permission slip and no dues needed for this one — just show up.</p></div>
     </div>
   </div>
 </section>
 
-<!-- MEMBERSHIP -->
-<section id="membership">
+<!-- DUES -->
+<section id="dues" class="ruled">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">04</div>
-      <div class="tag">Membership</div>
-      <h2 class="h2">Dues</h2>
-      <p class="sub">Cash, in person, at a meeting. Dues cover club activities, competition entries,
-        prizes, and food &mdash; the club runs on them. One membership covers both tracks.</p>
+      <span class="label">04 — Dues</span>
+      <div>
+        <h2 class="d2">What it costs.</h2>
+        <p class="lead">Cash, in person, at a meeting. Dues cover activities, competition entries,
+          prizes, and food. One membership covers both tracks.</p>
+      </div>
     </div>
-    <div class="tiers">
-      <div class="tier rv">
-        <h3>General</h3>
-        <div class="price">$20</div>
+    <div class="tiers rv">
+      <div class="tier">
+        <span class="label">General</span>
+        <div class="price num">$20</div>
         <ul>
           <li>Full club membership</li>
-          <li>Both tracks &mdash; research and build</li>
-          <li>All club activities &amp; workshops</li>
-          <li>Prizes and giveaways</li>
-          <li>Food at meetings</li>
+          <li>Both tracks — research and build</li>
+          <li>All activities and workshops</li>
+          <li>Prizes, giveaways, food</li>
           <li>Official attendance credit</li>
         </ul>
       </div>
-      <div class="tier best rv">
-        <span class="badge">Best Value</span>
-        <h3>Combo</h3>
-        <div class="price">$30 <small>save $5</small></div>
+      <div class="tier">
+        <span class="label pick">Membership + shirt</span>
+        <div class="price num">$30</div>
+        <span class="save">Saves $5</span>
         <ul>
           <li>Everything in General</li>
           <li>Official club shirt included</li>
           <li>Competition-ready from day one</li>
-          <li>Cheaper than buying both separately</li>
         </ul>
       </div>
-      <div class="tier rv">
-        <h3>Shirt Only</h3>
-        <div class="price">$15</div>
+      <div class="tier">
+        <span class="label">Shirt only</span>
+        <div class="price num">$15</div>
         <ul>
           <li>Official club shirt</li>
-          <li><b>Required</b> to compete with the club</li>
+          <li>Required to compete with the club</li>
           <li>Does not include membership</li>
         </ul>
       </div>
     </div>
-    <div class="note rv">
-      <b>Heads up:</b> the shirt is <b>mandatory for competitions</b> &mdash; if you plan to compete
-      at any point this year, take the <b>$30 combo</b>. It's $5 cheaper than paying for both
-      separately. All payments are <b>cash, in person</b>, handed to Mrs. Dennison at a Wednesday
-      meeting.
-    </div>
+    <p class="callout rv">The shirt is <b>mandatory for competitions</b>. If you plan to compete at
+      any point this year, take the <b>$30 combo</b> — it's $5 cheaper than paying for both
+      separately. All payments are <b>cash, in person</b>, to Mrs. Dennison at a Wednesday meeting.</p>
   </div>
 </section>
 
 <!-- JOIN -->
-<section id="join">
+<section id="join" class="ruled">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">05</div>
-      <div class="tag">How to Join</div>
-      <h2 class="h2">Four steps. Done in a week.</h2>
-      <p class="sub">Start with the interest form &mdash; that's the only online part. Everything
-        after happens in person at a Wednesday meeting.</p>
+      <span class="label">05 — How to join</span>
+      <div>
+        <h2 class="d2">Four steps.</h2>
+        <p class="lead">The interest form is the only online part. Everything else happens in person
+          at a meeting.</p>
+      </div>
     </div>
-    <div class="steps">
-      <div class="step rv">
+    <ol class="steps">
+      <li class="step rv">
         <div>
-          <h4>Fill out the interest form</h4>
-          <p>One form for everyone &mdash; members and anyone who wants to be an officer.
-            <a href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Open the interest form</a>.
+          <h3 class="d4">Fill out the interest form</h3>
+          <p>One form for everyone — members and anyone who wants to be an officer.
+            <a href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Open the form</a>.
             Takes about a minute.</p>
         </div>
-      </div>
-      <div class="step rv">
+      </li>
+      <li class="step rv">
         <div>
-          <h4>Fill out the OTHS non-curriculum club form</h4>
-          <p>Katy ISD requires a signed parent permission slip for every non-curriculum club you
-            join. Download it here:
-            <a href="https://oths.katyisd.org/fs/resource-manager/view/7334df86-16ce-48fc-9d91-d58098dcc792" target="_blank" rel="noopener">OTHS parent permission slip (PDF)</a>
-            &mdash; also linked on the
-            <a href="https://oths.katyisd.org/activities/clubs-organizations" target="_blank" rel="noopener">OTHS Clubs &amp; Organizations page</a>.
-            Get a parent signature.</p>
+          <h3 class="d4">Get the permission slip signed</h3>
+          <p>Katy ISD requires a signed parent permission slip for every non-curriculum club.
+            <a href="https://oths.katyisd.org/fs/resource-manager/view/7334df86-16ce-48fc-9d91-d58098dcc792" target="_blank" rel="noopener">Download it here</a>,
+            or find it on the
+            <a href="https://oths.katyisd.org/activities/clubs-organizations" target="_blank" rel="noopener">OTHS clubs page</a>.</p>
         </div>
-      </div>
-      <div class="step rv">
+      </li>
+      <li class="step rv">
         <div>
-          <h4>Bring it to a Wednesday meeting</h4>
-          <p>Room 1661, 2:45 PM. Hand the signed slip to <b>Mrs. Dennison</b>. Forms have to be
-            turned in fresh each school year.</p>
+          <h3 class="d4">Bring it to a Wednesday meeting</h3>
+          <p>Room 1661, 2:45 PM. Hand the signed slip to Mrs. Dennison. Forms have to be turned in
+            fresh each school year.</p>
         </div>
-      </div>
-      <div class="step rv">
+      </li>
+      <li class="step rv">
         <div>
-          <h4>Pay your dues in cash</h4>
-          <p><b>$20</b> for general membership, or <b>$30</b> for membership plus the official club
-            shirt. Pay at the same meeting you turn in your slip and you're officially in.</p>
+          <h3 class="d4">Pay your dues in cash</h3>
+          <p>$20 for general membership, or $30 for membership plus the shirt. Pay at the same
+            meeting you turn in your slip and you're in.</p>
         </div>
-      </div>
-    </div>
-    <div class="cta rv" style="margin-top:30px">
-      <a class="btn btn-primary" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Fill out the interest form &rarr;</a>
-      <a class="btn btn-ghost" href="https://oths.katyisd.org/fs/resource-manager/view/7334df86-16ce-48fc-9d91-d58098dcc792" target="_blank" rel="noopener">Download the permission slip</a>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- OFFICERS -->
-<section id="officers">
+<section id="officers" class="ruled">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">06</div>
-      <div class="tag">Officers</div>
-      <h2 class="h2">Who's running this</h2>
-      <p class="sub">Three officers, two tracks. Come to a Wednesday meeting and you'll meet all of
-        them.</p>
+      <span class="label">06 — Officers</span>
+      <div>
+        <h2 class="d2">Who's running this.</h2>
+        <p class="lead">Three officers. Come to a Wednesday meeting and you'll meet all of them.</p>
+      </div>
     </div>
-
     <div class="team">
       <article class="member rv">
-        <div class="photo">
-          <span aria-hidden="true">AS</span>
-          <img src="assets/aarav.jpg" alt="Aarav Sinha" onerror="photoFallback(this,'aarav')">
-        </div>
-        <div class="m-body">
-          <h3>Aarav Sinha</h3>
-          <div class="roles-row">
-            <span class="role">Co-Founder &middot; Co-President</span>
-            <span class="role">Track 01</span>
-          </div>
-          <p>Works on brain-inspired machine learning and teaches the research track with Sharvin
-            &mdash; how models actually work, how to train your own, and how to turn results into a
-            paper.</p>
-        </div>
+        <div class="photo"><img src="assets/aarav.jpg" alt="Aarav Sinha" onerror="photoFallback(this,'aarav')"></div>
+        <h3 class="d3">Aarav Sinha</h3>
+        <p class="role">Co-Founder, Co-President</p>
+        <p>Works on brain-inspired machine learning and teaches the research track with Sharvin —
+          how models actually work, how to train your own, and how to turn results into a paper.</p>
       </article>
-
       <article class="member rv">
-        <div class="photo">
-          <span aria-hidden="true">SG</span>
-          <img src="assets/sharvin.jpg" alt="Sharvin Goyal" onerror="photoFallback(this,'sharvin')">
-        </div>
-        <div class="m-body">
-          <h3>Sharvin Goyal</h3>
-          <div class="roles-row">
-            <span class="role">Co-Founder &middot; Co-President</span>
-            <span class="role">Track 01</span>
-          </div>
-          <p>Works on making large language models safer and more trustworthy. Co-teaches the
-            research track and helps members get projects written up and submitted.</p>
-        </div>
+        <div class="photo"><img src="assets/sharvin.jpg" alt="Sharvin Goyal" onerror="photoFallback(this,'sharvin')"></div>
+        <h3 class="d3">Sharvin Goyal</h3>
+        <p class="role">Co-Founder, Co-President</p>
+        <p>Works on making large language models safer and more trustworthy. Co-teaches the research
+          track and helps members get projects written up and submitted.</p>
       </article>
-
       <article class="member rv">
-        <div class="photo">
-          <span aria-hidden="true">RP</span>
-          <img src="assets/robert.jpg" alt="Robert Pierson" onerror="photoFallback(this,'robert')">
-        </div>
-        <div class="m-body">
-          <h3>Robert Pierson</h3>
-          <div class="roles-row">
-            <span class="role">Vice President</span>
-            <span class="role">Track 02</span>
-          </div>
-          <p>Full-stack developer. Teaches the build track &mdash; vibecoding with AI agents,
-            AI-assisted CAD, and shipping things that actually work.</p>
-        </div>
+        <div class="photo"><img src="assets/robert.jpg" alt="Robert Pierson" onerror="photoFallback(this,'robert')"></div>
+        <h3 class="d3">Robert Pierson</h3>
+        <p class="role">Vice President</p>
+        <p>Full-stack developer. Teaches the build track — vibecoding with AI agents, AI-assisted
+          CAD, and shipping things that actually work.</p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- COMPETE -->
-<section id="compete">
+<section id="compete" class="ruled">
   <div class="wrap">
     <div class="head rv">
-      <div class="ghost">07</div>
-      <div class="tag">Compete &amp; Publish</div>
-      <h2 class="h2">Where we're taking this</h2>
-      <p class="sub">Competitions are where the club shirt becomes mandatory. Research is where a
-        club project turns into something with your name on it, permanently.</p>
+      <span class="label">07 — Compete &amp; publish</span>
+      <div>
+        <h2 class="d2">Where this goes.</h2>
+        <p class="lead">Competitions are where the shirt becomes mandatory. Research is where a club
+          project turns into something with your name on it, permanently.</p>
+      </div>
     </div>
-    <div class="split">
-      <div>
-        <h5 class="lbl-h">Competitions</h5>
-        <div class="comp">
-          <a class="rv" href="https://ioai-official.org/" target="_blank" rel="noopener">
-            <strong>International Olympiad in AI (IOAI)</strong>
-            <span>The Olympics of AI for high schoolers &mdash; machine learning and scientific
-              rounds, national team selection.</span></a>
-          <a class="rv" href="https://www.waicy.org/" target="_blank" rel="noopener">
-            <strong>WAICY &mdash; World AI Competition for Youth</strong>
-            <span>The largest AI competition for ages 13&ndash;18, with an AI Showcase track for
-              real-world projects. A good first competition.</span></a>
-          <a class="rv" href="https://www.correlation-one.com/apex-america/high-school-championship" target="_blank" rel="noopener">
-            <strong>APEX America High School AI Championship</strong>
-            <span>Open to all US high schoolers. No prerequisites, all experience levels &mdash;
-              built for first-year members.</span></a>
-        </div>
-      </div>
-      <div>
-        <h5 class="lbl-h">Research Venues</h5>
-        <div class="comp">
-          <a class="rv" href="https://bigdataieee.org/BigData2026/high-school-symposium/" target="_blank" rel="noopener">
-            <strong>IEEE BigData High School Symposium</strong>
-            <span>Peer-reviewed original research papers by high school students at a real IEEE
-              conference, with Outstanding Paper and Rising Star awards.</span></a>
-          <a class="rv" href="https://www.aiasplus.org/call-for-student-posters" target="_blank" rel="noopener">
-            <strong>AIAS+ Chen Institute Student Showcase</strong>
-            <span>Grades 9&ndash;12 research posters on AI transforming scientific discovery.
-              Selected students present alongside working researchers.</span></a>
-          <div class="item rv">
-            <strong>Club Research Track</strong>
-            <span>Train a model, run the experiments, write it up. Officers who've published at
-              ICML and NeurIPS workshops walk you through the paper.</span></div>
-        </div>
-      </div>
+    <div class="rows">
+      <a class="row rv" href="https://ioai-official.org/" target="_blank" rel="noopener">
+        <h3 class="d4">International Olympiad in AI</h3>
+        <p>Machine learning and scientific rounds, national team selection.</p>
+        <span class="arrow">→</span></a>
+      <a class="row rv" href="https://www.waicy.org/" target="_blank" rel="noopener">
+        <h3 class="d4">WAICY</h3>
+        <p>The largest AI competition for ages 13–18. A good first competition.</p>
+        <span class="arrow">→</span></a>
+      <a class="row rv" href="https://www.correlation-one.com/apex-america/high-school-championship" target="_blank" rel="noopener">
+        <h3 class="d4">APEX America Championship</h3>
+        <p>No prerequisites, all experience levels. Built for first-year members.</p>
+        <span class="arrow">→</span></a>
+      <a class="row rv" href="https://bigdataieee.org/BigData2026/high-school-symposium/" target="_blank" rel="noopener">
+        <h3 class="d4">IEEE BigData Symposium</h3>
+        <p>Peer-reviewed high school research papers at a real IEEE conference.</p>
+        <span class="arrow">→</span></a>
+      <a class="row rv" href="https://www.aiasplus.org/call-for-student-posters" target="_blank" rel="noopener">
+        <h3 class="d4">AIAS+ Student Showcase</h3>
+        <p>Grades 9–12 research posters, presented alongside working researchers.</p>
+        <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
 <!-- APPLY -->
-<section id="apply">
-  <div class="wrap">
-    <div class="apply rv">
-      <div class="tag" style="justify-content:center">Sign Up</div>
-      <h2>One form. Members and officers.</h2>
-      <p>Whether you just want to show up on Wednesdays or you want real ownership of a club that's
-        actually going places &mdash; competitions, research, workshops, outreach &mdash; it's the
-        same form. You don't need a research r&eacute;sum&eacute; to be an officer. You need to show
-        up and follow through.</p>
-      <div class="cta" style="justify-content:center">
-        <a class="btn btn-primary" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Open the interest form &rarr;</a>
-        <a class="btn btn-ghost" href="#meetings">Or just come Wednesday</a>
+<section id="apply" class="ruled">
+  <div class="wrap apply rv">
+    <span class="label">08 — Officers wanted</span>
+    <div>
+      <h2 class="d2">One form. Members and officers.</h2>
+      <p>Whether you just want to show up on Wednesdays or you want real ownership of the club —
+        competitions, research, workshops, outreach — it's the same form. You don't need a research
+        résumé. You need to show up and follow through.</p>
+      <div class="cta">
+        <a class="btn btn-solid" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Open the form</a>
+        <a class="btn btn-line" href="#meetings">Or just come Wednesday</a>
       </div>
       <div class="roles">
         <span>Secretary</span><span>Treasurer</span><span>Competition Lead</span>
@@ -459,13 +383,12 @@ function photoFallback(img, name) {
 
 <footer>
   <div class="wrap f-grid">
-    <p><b>OTHS AI &amp; Machine Learning Club</b><br>
-      Obra D. Tompkins High School &middot; Katy ISD &middot; Room 1661, Wednesdays 2:45 PM</p>
-    <a class="chip" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Interest Form</a>
-    <a class="chip" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">Instagram &mdash; @othsaiclub</a>
-    <a class="chip" href="https://oths.katyisd.org/activities/clubs-organizations" target="_blank" rel="noopener">OTHS Clubs Page</a>
+    <p class="who"><b>OTHS AI &amp; Machine Learning Club</b>
+      Obra D. Tompkins High School, Katy ISD<br>Room 1661 — Wednesdays, 2:45 PM</p>
+    <a class="ul" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Interest form</a>
+    <a class="ul" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">Instagram</a>
+    <a class="ul" href="https://oths.katyisd.org/activities/clubs-organizations" target="_blank" rel="noopener">OTHS clubs</a>
   </div>
 </footer>
-
 </body>
 </html>
