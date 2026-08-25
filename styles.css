@@ -32,12 +32,6 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.08;margin:0;letter-spacing:
     radial-gradient(900px 620px at 82% -10%,rgba(77,155,255,.22),transparent 62%),
     radial-gradient(720px 520px at 4% 12%,rgba(140,196,255,.09),transparent 60%),
     radial-gradient(1100px 720px at 50% 112%,rgba(26,92,204,.16),transparent 66%)}
-.field:after{content:"";position:absolute;inset:0;opacity:.45;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:66px 66px;
-  -webkit-mask-image:radial-gradient(ellipse 92% 66% at 50% 16%,#000 18%,transparent 76%);
-  mask-image:radial-gradient(ellipse 92% 66% at 50% 16%,#000 18%,transparent 76%)}
 main,header,footer{position:relative;z-index:1}
 
 /* ---------- nav ---------- */
@@ -91,10 +85,6 @@ main,header,footer{position:relative;z-index:1}
 /* soft halo behind the badge, sized to sit just outside its rim */
 .hero-art:before{content:"";position:absolute;width:88%;aspect-ratio:1;border-radius:50%;
   background:radial-gradient(circle,rgba(77,155,255,.40),transparent 66%);filter:blur(46px)}
-/* faint rotating ring, echoes the badge's circular lettering */
-.hero-art:after{content:"";position:absolute;width:min(440px,112%);aspect-ratio:1;border-radius:50%;
-  border:1px dashed rgba(124,162,210,.20);animation:spin 60s linear infinite;pointer-events:none}
-@keyframes spin{to{transform:rotate(360deg)}}
 
 /* ---------- ticker ---------- */
 .ticker{margin-top:82px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
@@ -277,7 +267,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 42px;margin-top:44px;back
 @media (prefers-reduced-motion:reduce){
   .js .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
-  .track,.dot,.hero-art img,.hero-art:after{animation:none}
+  .track,.dot,.hero-art img{animation:none}
 }
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue-lt);outline-offset:3px;border-radius:8px}
 
