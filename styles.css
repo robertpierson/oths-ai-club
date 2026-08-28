@@ -65,23 +65,23 @@ section{padding:var(--sec) 0}
   align-items:start;margin-bottom:clamp(48px,7vw,96px)}
 .head .lead{margin:18px 0 0}
 
-/* ---------- background forms ----------
-   Large flat discs echoing the round club badge. Tone-on-tone, static, no
-   gradient or glow; they bleed off the edge so they read as fields, not shapes.
-   Sections clip them, so they can never cause horizontal scroll. */
-.hero,#meetings,#compete,#apply{position:relative;overflow:hidden}
-.hero>.wrap,#meetings>.wrap,#compete>.wrap,#apply>.wrap{position:relative;z-index:1}
-.hero:before,#meetings:before,#compete:before,#apply:before{
-  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+/* ---------- background layer ----------
+   Oversized outlined wordmarks and a cropped falcon badge. Specific to this
+   club, not generic shapes. Parented sections clip them; app.js drifts them
+   on scroll via transform only. */
+.hero,#about,#compete,#officers,#apply{position:relative;overflow:hidden}
+.hero>.wrap,#about>.wrap,#compete>.wrap,#officers>.wrap,#apply>.wrap{position:relative;z-index:1}
 
-.hero:before{width:min(1080px,118vw);aspect-ratio:1;background:#24407f;
-  right:-24%;top:-46%}
-#meetings:before{width:min(760px,96vw);aspect-ratio:1;border:2px solid rgba(139,185,255,.45);
-  left:-20%;bottom:-34%}
-#compete:before{width:min(900px,104vw);aspect-ratio:1;background:#24407f;
-  right:-26%;bottom:-40%}
-#apply:before{width:min(820px,100vw);aspect-ratio:1;border:2px solid rgba(5,7,11,.38);
-  left:-14%;top:-40%}
+.bgtype{position:absolute;pointer-events:none;user-select:none;z-index:0;
+  font:500 clamp(150px,26vw,380px)/.78 var(--display);letter-spacing:-.05em;
+  white-space:nowrap;color:transparent;
+  -webkit-text-stroke:1.5px rgba(139,185,255,.26);will-change:transform}
+.bgtype.r{right:-4%}
+.bgtype.l{left:-6%}
+#apply .bgtype{-webkit-text-stroke-color:rgba(5,7,11,.30)}
+
+.bgmark{position:absolute;pointer-events:none;user-select:none;z-index:0;
+  width:min(620px,80vw);opacity:.08;will-change:transform}
 
 /* ---------- nav ---------- */
 .nav{position:sticky;top:0;z-index:60;background:rgba(8,13,26,.88);
@@ -192,7 +192,7 @@ section{padding:var(--sec) 0}
   transition:filter var(--d-slow) var(--ease),transform var(--d-slow) var(--ease)}
 /* no photo file yet → collapse the frame instead of showing an empty box */
 .member.no-photo .photo{display:none}
-.member .role{margin-top:12px;color:var(--faint);font-size:13px}
+.member .role{margin-top:12px;color:var(--dim);font-size:13px}
 .member p{margin:16px 0 0;color:var(--dim);font-size:14.5px}
 
 /* ---------- link rows ---------- */
