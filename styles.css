@@ -7,14 +7,15 @@
 :root{
   /* navy ground pulled from the club badge, not black */
   --bg:#080d1a;
-  --bg-2:#101a33;         /* alternating section band */
+  --bg-2:#1e3468;         /* alternating section band */
   --panel:var(--bg);      /* cells inherit whichever band they sit in */
   --fg:#eef3fa;
   --dim:#a3b1c8;
-  --faint:#8b97ad;
+  --faint:#9aa6bb;  /* light enough for 13px on the #1e3468 band */
   --rule:rgba(160,190,240,.14);
   --rule-hi:rgba(160,190,240,.30);
-  --accent:#6ba5ff;       /* blue: the club colour — actions, links, labels */
+  --accent:#8bb9ff;       /* blue: actions, links, labels. Light enough to clear
+                             AA at 11px over the #24407f background discs. */
   --accent-field:#3d7ef5;
   --on-accent:#05070b;
 
@@ -73,13 +74,13 @@ section{padding:var(--sec) 0}
 .hero:before,#meetings:before,#compete:before,#apply:before{
   content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:0}
 
-.hero:before{width:min(1080px,118vw);aspect-ratio:1;background:var(--bg-2);
+.hero:before{width:min(1080px,118vw);aspect-ratio:1;background:#24407f;
   right:-24%;top:-46%}
-#meetings:before{width:min(760px,96vw);aspect-ratio:1;border:1px solid var(--rule);
+#meetings:before{width:min(760px,96vw);aspect-ratio:1;border:2px solid rgba(139,185,255,.45);
   left:-20%;bottom:-34%}
-#compete:before{width:min(900px,104vw);aspect-ratio:1;background:var(--bg-2);
+#compete:before{width:min(900px,104vw);aspect-ratio:1;background:#24407f;
   right:-26%;bottom:-40%}
-#apply:before{width:min(820px,100vw);aspect-ratio:1;border:1px solid rgba(5,7,11,.20);
+#apply:before{width:min(820px,100vw);aspect-ratio:1;border:2px solid rgba(5,7,11,.38);
   left:-14%;top:-40%}
 
 /* ---------- nav ---------- */
@@ -202,7 +203,7 @@ section{padding:var(--sec) 0}
   transition:transform var(--d-mid) var(--ease)}
 .row .d4{flex:none;width:min(300px,42%);transition:color var(--d-mid) var(--ease)}
 .row p{margin:0;color:var(--dim);font-size:14px}
-.row .arrow{margin-left:auto;color:var(--faint);flex:none;
+.row .arrow{margin-left:auto;color:var(--dim);flex:none;
   transition:transform var(--d-mid) var(--ease),color var(--d-mid) var(--ease)}
 
 /* ---------- apply: the page's closing color field, bookending the announcement ---------- */
