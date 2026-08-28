@@ -64,6 +64,24 @@ section{padding:var(--sec) 0}
   align-items:start;margin-bottom:clamp(48px,7vw,96px)}
 .head .lead{margin:18px 0 0}
 
+/* ---------- background forms ----------
+   Large flat discs echoing the round club badge. Tone-on-tone, static, no
+   gradient or glow; they bleed off the edge so they read as fields, not shapes.
+   Sections clip them, so they can never cause horizontal scroll. */
+.hero,#meetings,#compete,#apply{position:relative;overflow:hidden}
+.hero>.wrap,#meetings>.wrap,#compete>.wrap,#apply>.wrap{position:relative;z-index:1}
+.hero:before,#meetings:before,#compete:before,#apply:before{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+
+.hero:before{width:min(1080px,118vw);aspect-ratio:1;background:var(--bg-2);
+  right:-24%;top:-46%}
+#meetings:before{width:min(760px,96vw);aspect-ratio:1;border:1px solid var(--rule);
+  left:-20%;bottom:-34%}
+#compete:before{width:min(900px,104vw);aspect-ratio:1;background:var(--bg-2);
+  right:-26%;bottom:-40%}
+#apply:before{width:min(820px,100vw);aspect-ratio:1;border:1px solid rgba(5,7,11,.20);
+  left:-14%;top:-40%}
+
 /* ---------- nav ---------- */
 .nav{position:sticky;top:0;z-index:60;background:rgba(8,13,26,.88);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
