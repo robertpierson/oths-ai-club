@@ -42,4 +42,4 @@ Everything below is hardcoded in `index.html` — search for the value to change
 - Interest form: `forms.gle/xnXgh782r7dLQAtBA` (6 places — nav, hero, join step 1, join CTA,
   sign-up section, footer)
 - Dues: `$20` / `$15` / `$30`
-- Meeting: `Wednesdays`, `2:45 PM`, `Room 1661`, `Mrs. Dennison`
+- Meeting: `Wednesdays`, `2:45-3:15 PM`, `Room 1661`, `Mrs. Dennison`
