@@ -41,6 +41,7 @@ function photoFallback(img, name) {
       <a href="#dues">Dues</a>
       <a href="#officers">Officers</a>
       <a href="#compete">Compete</a>
+      <a href="#faq">FAQ</a>
       <a class="btn btn-solid" href="https://forms.gle/xnXgh782r7dLQAtBA" target="_blank" rel="noopener">Sign up</a>
     </nav>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">Menu</button>
@@ -191,11 +192,63 @@ function photoFallback(img, name) {
   </div>
 </section>
 
-<!-- DUES -->
-<section id="dues" class="band">
+<!-- SEMESTER -->
+<section id="semester" class="band">
   <div class="wrap">
     <div class="head rv">
-      <span class="label">04 — Dues</span>
+      <span class="label">04 &mdash; First six weeks</span>
+      <div>
+        <h2 class="d2">What actually<br>happens.</h2>
+        <p class="lead">No mystery about what you're signing up for. This is the plan through
+          early October &mdash; every date is a Wednesday, 2:45&ndash;3:15 PM, Room 1661.</p>
+      </div>
+    </div>
+    <ol class="weeks">
+      <li class="week rv">
+        <span class="label">Sept 2</span>
+        <div><h3 class="d4">Kickoff</h3>
+          <p>Free pizza and candy. What the club does, who runs it, and how the two tracks work.
+            Pick the one you want. Nothing due, nothing to pay.</p></div>
+      </li>
+      <li class="week rv">
+        <span class="label">Sept 9</span>
+        <div><h3 class="d4">Get set up</h3>
+          <p>Python, Google Colab, and a GitHub account. Everyone trains and runs their first
+            model before they leave the room.</p></div>
+      </li>
+      <li class="week rv">
+        <span class="label">Sept 16</span>
+        <div><h3 class="d4">Tracks split</h3>
+          <p>Research: how a neural network actually learns, gradient by gradient.
+            Build: your first vibecoded app, shipped live.</p></div>
+      </li>
+      <li class="week rv">
+        <span class="label">Sept 23</span>
+        <div><h3 class="d4">Pick your project</h3>
+          <p>Research: choose the question you'll spend the semester on.
+            Build: AI-assisted CAD, prompt to printable part.</p></div>
+      </li>
+      <li class="week rv">
+        <span class="label">Sept 30</span>
+        <div><h3 class="d4">Work session</h3>
+          <p>Heads-down building with officers on hand. Competition sign-ups open &mdash; this is
+            when the shirt starts mattering.</p></div>
+      </li>
+      <li class="week rv">
+        <span class="label">Oct 7</span>
+        <div><h3 class="d4">Show what you made</h3>
+          <p>Everyone demos. Five minutes, no slides required. First look at what the club
+            submits this year.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- DUES -->
+<section id="dues" class="ruled">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">05 &mdash; Dues</span>
       <div>
         <h2 class="d2">What it costs.</h2>
         <p class="lead">Cash, in person, at a meeting. Dues cover activities, competition entries,
@@ -241,10 +294,10 @@ function photoFallback(img, name) {
 </section>
 
 <!-- JOIN -->
-<section id="join" class="ruled">
+<section id="join" class="band">
   <div class="wrap">
     <div class="head rv">
-      <span class="label">05 — How to join</span>
+      <span class="label">06 &mdash; How to join</span>
       <div>
         <h2 class="d2">Four steps.</h2>
         <p class="lead">The interest form is the only online part. Everything else happens in person
@@ -288,11 +341,11 @@ function photoFallback(img, name) {
 </section>
 
 <!-- OFFICERS -->
-<section id="officers" class="band">
+<section id="officers" class="ruled">
   <img class="bgmark" src="assets/logo.png" alt="" aria-hidden="true" data-drift="70" style="left:-16%;top:-14%" onerror="this.remove()">
   <div class="wrap">
     <div class="head rv">
-      <span class="label">06 — Officers</span>
+      <span class="label">07 &mdash; Officers</span>
       <div>
         <h2 class="d2">Who's running this.</h2>
         <p class="lead">Three officers. Come to a Wednesday meeting and you'll meet all of them.</p>
@@ -325,11 +378,11 @@ function photoFallback(img, name) {
 </section>
 
 <!-- COMPETE -->
-<section id="compete" class="ruled">
+<section id="compete" class="band">
   <span class="bgtype r" aria-hidden="true" data-drift="-90" style="bottom:-14%">COMPETE</span>
   <div class="wrap">
     <div class="head rv">
-      <span class="label">07 — Compete &amp; publish</span>
+      <span class="label">08 &mdash; Compete &amp; publish</span>
       <div>
         <h2 class="d2">Where this goes.</h2>
         <p class="lead">Competitions are where the shirt becomes mandatory. Research is where a club
@@ -361,11 +414,56 @@ function photoFallback(img, name) {
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="ruled">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">09 &mdash; Questions</span>
+      <div>
+        <h2 class="d2">Before you ask.</h2>
+        <p class="lead">If it's not here, come to a meeting or message the club on Instagram.</p>
+      </div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Do I need any experience?</summary>
+        <p>No. We start people from zero every year &mdash; that's the whole point of the first
+          few weeks. If you've never written a line of Python, you're the person this club is
+          built for.</p></details>
+      <details><summary>Do I need my own laptop?</summary>
+        <p>Bring one if you have one, since everything runs in the browser through Google Colab.
+          If you don't have a laptop, tell an officer at the first meeting and we'll sort
+          something out. It isn't a reason to skip joining.</p></details>
+      <details><summary>What if I can't afford the dues?</summary>
+        <p>Talk to Mrs. Dennison or any officer privately. Nobody gets turned away over $20 &mdash;
+          we'll figure it out and we won't make it a thing.</p></details>
+      <details><summary>Can I join after September?</summary>
+        <p>Yes. Show up at any Wednesday meeting with the signed permission slip and your dues.
+          You'll have some catching up to do on the track content, but officers will get you
+          current.</p></details>
+      <details><summary>Do I have to pick one track and stick with it?</summary>
+        <p>No. One membership covers both. Plenty of people do research one week and build the
+          next &mdash; the tracks run in the same room at the same time.</p></details>
+      <details><summary>Is the shirt actually required?</summary>
+        <p>Only if you compete. For competitions it's mandatory, no exceptions. If you think
+          you'll compete at any point this year, the $30 combo saves you $5 over buying both
+          separately later.</p></details>
+      <details><summary>How do I become an officer?</summary>
+        <p>Same interest form as everyone else &mdash; there's a question on it. You don't need a
+          research background. Officers get picked on showing up and following through, which is
+          rarer than it sounds.</p></details>
+      <details><summary>Is this actually worth it for college apps?</summary>
+        <p>A published paper or a shipped project with your name on it is worth more than a
+          membership line on a list. That's why the club is built around producing those instead
+          of just meeting.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- APPLY -->
 <section id="apply" class="ruled">
   <span class="bgtype l" aria-hidden="true" data-drift="80" style="bottom:-16%">SIGN&nbsp;UP</span>
   <div class="wrap apply rv">
-    <span class="label">08 — Officers wanted</span>
+    <span class="label">10 &mdash; Officers wanted</span>
     <div>
       <h2 class="d2">One form. Members and officers.</h2>
       <p>Whether you just want to show up on Wednesdays or you want real ownership of the club —
