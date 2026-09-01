@@ -193,6 +193,24 @@ section{padding:var(--sec) 0}
 .week .label{padding-top:4px}
 .week p{margin:12px 0 0;color:var(--dim);font-size:14.5px;max-width:58ch}
 
+/* ---------- connect: discord / remind / form ---------- */
+.connect{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.conn{background:var(--panel);padding:38px 30px 42px 0;display:flex;flex-direction:column;align-items:flex-start}
+.conn:not(:first-child){padding-left:30px}
+.conn h3{margin:18px 0 0}
+.conn p{margin:14px 0 0;color:var(--dim);font-size:14.5px}
+.conn .list{margin:20px 0 0}
+.conn .btn{margin-top:26px}
+.mono{font-variant-numeric:tabular-nums;letter-spacing:.01em;color:var(--fg)}
+
+/* QR sits on a white plate — scanners want dark-on-light, and it reads as an
+   object on the page rather than a hole in it */
+.qr{display:inline-flex;flex-direction:column;align-items:center;gap:10px;margin-top:28px}
+.qr img{width:132px;height:132px;background:#fff;padding:9px;
+  transition:transform var(--d-mid) var(--ease)}
+.qr span{font:500 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.conn .who{margin-top:auto;padding-top:28px;color:var(--faint);font-size:13.5px}
+
 /* ---------- faq: native <details>, no JS ---------- */
 .faq details{border-top:1px solid var(--rule)}
 .faq details:last-of-type{border-bottom:1px solid var(--rule)}
@@ -258,6 +276,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 64px}
   .member:hover .photo img{filter:grayscale(0) contrast(1);transform:scale(1.02)}
   .row:hover{transform:translateX(12px)}
   .row:hover .d4{color:var(--accent)}
+  .qr:hover img{transform:scale(1.04)}
   .row:hover .arrow{transform:translateX(6px);color:var(--accent)}
   .step a:hover{border-color:var(--fg)}
   .f-grid a:hover{color:var(--fg)}
@@ -277,9 +296,9 @@ footer{border-top:1px solid var(--rule);padding:56px 0 64px}
 
 /* ---------- responsive ---------- */
 @media(max-width:1080px){
-  .grid3,.meet,.tiers{grid-template-columns:repeat(2,1fr)}
-  .cell:not(:nth-child(3n+1)),.meet>div:not(:first-child),.tier:not(:first-child){padding-left:0}
-  .cell:nth-child(even),.meet>div:nth-child(even),.tier:nth-child(even){padding-left:30px}
+  .grid3,.meet,.tiers,.connect{grid-template-columns:repeat(2,1fr)}
+  .cell:not(:nth-child(3n+1)),.meet>div:not(:first-child),.tier:not(:first-child),.conn:not(:first-child){padding-left:0}
+  .cell:nth-child(even),.meet>div:nth-child(even),.tier:nth-child(even),.conn:nth-child(even){padding-left:30px}
 }
 @media(max-width:860px){
   :root{--gut:22px}
@@ -301,6 +320,6 @@ footer{border-top:1px solid var(--rule);padding:56px 0 64px}
   .burger{display:block}
 }
 @media(max-width:620px){
-  .grid3,.meet,.tiers,.facts{grid-template-columns:1fr}
-  .cell,.meet>div,.tier,.fact{padding-left:0!important;padding-right:0!important}
+  .grid3,.meet,.tiers,.facts,.connect{grid-template-columns:1fr}
+  .cell,.meet>div,.tier,.fact,.conn{padding-left:0!important;padding-right:0!important}
 }
