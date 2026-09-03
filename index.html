@@ -15,12 +15,9 @@
 <script>
 document.documentElement.classList.add('js');
 // officer photos: try the common extensions, then collapse the frame entirely
-function galleryFallback(img, name) {
-  var ext = ['jpeg', 'png', 'webp'], i = +(img.dataset.i || 0);
-  if (i < ext.length) { img.dataset.i = i + 1; img.src = 'assets/' + name + '.' + ext[i]; return; }
-  img.closest('figure').remove();
-  var band = document.getElementById('gallery');
-  if (band && !band.querySelector('figure')) band.remove();   // no photos yet: drop the whole band
+function dropShot(img) {   // no photo file: remove the frame, never show a broken image
+  var f = img.closest('figure');
+  if (f) f.remove();
 }
 function photoFallback(img, name) {
   var ext = ['png', 'jpeg', 'webp'], i = +(img.dataset.i || 0);
@@ -86,13 +83,18 @@ function photoFallback(img, name) {
   </div>
 </section>
 
-<!-- FACTS -->
+<!-- PROOF: the turnout shot carries the facts row -->
 <div class="wrap">
-  <div class="facts rv">
-    <div class="fact"><b>Wednesdays</b><span class="label">Every week</span></div>
-    <div class="fact"><b>2:45&ndash;3:15</b><span class="label">PM, after school</span></div>
-    <div class="fact"><b>Room 1661</b><span class="label">Mrs. Dennison</span></div>
-    <div class="fact"><b>$20</b><span class="label">General membership</span></div>
+  <div class="proof rv">
+    <figure class="shot">
+      <img src="assets/turnout.jpg" alt="Room 1661 packed with members at a club meeting" onerror="dropShot(this)">
+    </figure>
+    <div class="facts">
+      <div class="fact"><b>Wednesdays</b><span class="label">Every week</span></div>
+      <div class="fact"><b>2:45&ndash;3:15</b><span class="label">PM, after school</span></div>
+      <div class="fact"><b>Room 1661</b><span class="label">Mrs. Dennison</span></div>
+      <div class="fact"><b>$20</b><span class="label">General membership</span></div>
+    </div>
   </div>
 </div>
 
@@ -178,21 +180,6 @@ function photoFallback(img, name) {
   </div>
 </section>
 
-<!-- GALLERY -->
-<div class="gallery-band" id="gallery">
-  <div class="gallery">
-    <figure><img src="assets/meeting-1.jpg" alt="Members packed into Room 1661 at a club meeting" loading="lazy" onerror="galleryFallback(this,'meeting-1')"></figure>
-    <figure><img src="assets/meeting-2.jpg" alt="A club meeting in progress, presentation on screen" loading="lazy" onerror="galleryFallback(this,'meeting-2')"></figure>
-    <figure><img src="assets/meeting-3.jpg" alt="Students at a club meeting in Room 1661" loading="lazy" onerror="galleryFallback(this,'meeting-3')"></figure>
-    <figure><img src="assets/meeting-4.jpg" alt="A full room of members at a club meeting" loading="lazy" onerror="galleryFallback(this,'meeting-4')"></figure>
-  </div>
-  <div class="wrap gallery-cap">
-    <span class="label">Room 1661, Wednesdays</span>
-    <p>This is what a meeting actually looks like. More on Instagram &mdash;
-      <a class="ul" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">@othsaiclub</a></p>
-  </div>
-</div>
-
 <!-- MEETINGS -->
 <section id="meetings" class="ruled">
   <div class="wrap">
@@ -204,6 +191,12 @@ function photoFallback(img, name) {
           commit to anything.</p>
       </div>
     </div>
+    <figure class="shot wide rv">
+      <img src="assets/session.jpg" alt="Members watching a presentation during a club meeting" loading="lazy" onerror="dropShot(this)">
+      <figcaption>A Wednesday session in Room 1661. More on
+        <a class="ul" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">Instagram</a>.</figcaption>
+    </figure>
+
     <div class="meet rv">
       <div><span class="label">When</span><div class="big">Wednesdays<br>2:45&ndash;3:15 PM</div>
         <p>Weekly, right after school. Come late if you have to.</p></div>
