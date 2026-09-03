@@ -15,6 +15,13 @@
 <script>
 document.documentElement.classList.add('js');
 // officer photos: try the common extensions, then collapse the frame entirely
+function galleryFallback(img, name) {
+  var ext = ['jpeg', 'png', 'webp'], i = +(img.dataset.i || 0);
+  if (i < ext.length) { img.dataset.i = i + 1; img.src = 'assets/' + name + '.' + ext[i]; return; }
+  img.closest('figure').remove();
+  var band = document.getElementById('gallery');
+  if (band && !band.querySelector('figure')) band.remove();   // no photos yet: drop the whole band
+}
 function photoFallback(img, name) {
   var ext = ['png', 'jpeg', 'webp'], i = +(img.dataset.i || 0);
   if (i < ext.length) { img.dataset.i = i + 1; img.src = 'assets/' + name + '.' + ext[i]; }
@@ -170,6 +177,21 @@ function photoFallback(img, name) {
     </div>
   </div>
 </section>
+
+<!-- GALLERY -->
+<div class="gallery-band" id="gallery">
+  <div class="gallery">
+    <figure><img src="assets/meeting-1.jpg" alt="Members packed into Room 1661 at a club meeting" loading="lazy" onerror="galleryFallback(this,'meeting-1')"></figure>
+    <figure><img src="assets/meeting-2.jpg" alt="A club meeting in progress, presentation on screen" loading="lazy" onerror="galleryFallback(this,'meeting-2')"></figure>
+    <figure><img src="assets/meeting-3.jpg" alt="Students at a club meeting in Room 1661" loading="lazy" onerror="galleryFallback(this,'meeting-3')"></figure>
+    <figure><img src="assets/meeting-4.jpg" alt="A full room of members at a club meeting" loading="lazy" onerror="galleryFallback(this,'meeting-4')"></figure>
+  </div>
+  <div class="wrap gallery-cap">
+    <span class="label">Room 1661, Wednesdays</span>
+    <p>This is what a meeting actually looks like. More on Instagram &mdash;
+      <a class="ul" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">@othsaiclub</a></p>
+  </div>
+</div>
 
 <!-- MEETINGS -->
 <section id="meetings" class="ruled">
@@ -457,6 +479,18 @@ function photoFallback(img, name) {
       </div>
 
       <div class="conn rv">
+        <span class="label">Instagram</span>
+        <h3 class="d3"><span class="mono">@othsaiclub</span></h3>
+        <p>Photos from meetings, competition results, and whatever the club is showing off
+          that week. The easiest way to see what you'd be walking into.</p>
+        <a class="btn btn-line" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">Follow on Instagram</a>
+        <a class="qr" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">
+          <img src="assets/qr-instagram.svg" alt="QR code linking to the club Instagram" loading="lazy">
+          <span>Scan to follow</span>
+        </a>
+      </div>
+
+      <div class="conn rv">
         <span class="label">Interest form</span>
         <h3 class="d3">Sign up</h3>
         <p>Members and anyone who wants to be an officer &mdash; same form, about a minute.
@@ -466,8 +500,6 @@ function photoFallback(img, name) {
           <img src="assets/qr-signup.svg" alt="QR code linking to the club interest form" loading="lazy">
           <span>Scan to open</span>
         </a>
-        <p class="who">Also on Instagram:
-          <a class="ul" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">@othsaiclub</a></p>
       </div>
     </div>
   </div>
