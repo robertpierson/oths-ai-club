@@ -55,11 +55,13 @@ function photoFallback(img, name) {
 
 <main id="top">
 
-<div class="announce">
+<div class="announce" id="announce">
   <div class="wrap">
-    <span class="label">First meeting</span>
-    <p><span class="num">Wednesday, September 2</span> — 2:45&ndash;3:15 PM, Room 1661. Free pizza and candy.</p>
-    <p class="quiet">Open to everyone. No form, no dues, just show up &mdash; <a class="ul" href="https://discord.gg/fugFYcFbeN" target="_blank" rel="noopener">join the Discord</a>.</p>
+    <span class="label" id="ann-label">Next meeting</span>
+    <p id="ann-line"><span class="num">Wednesday, September 9</span> &mdash; 2:45&ndash;3:15 PM, Room 1661.
+      Getting set up: Python, Colab, and your first trained model.</p>
+    <p class="quiet">New members welcome any week &mdash;
+      <a class="ul" href="https://discord.gg/fugFYcFbeN" target="_blank" rel="noopener">join the Discord</a>.</p>
   </div>
 </div>
 
@@ -87,7 +89,7 @@ function photoFallback(img, name) {
 <div class="wrap">
   <div class="proof rv">
     <figure class="shot">
-      <img src="assets/turnout.jpg" alt="Room 1661 packed with members at a club meeting" onerror="dropShot(this)">
+      <img src="assets/turnout.jpg" alt="Room 1661 packed with members at the first meeting on September 2" onerror="dropShot(this)">
     </figure>
     <div class="facts">
       <div class="fact"><b>Wednesdays</b><span class="label">Every week</span></div>
@@ -193,7 +195,7 @@ function photoFallback(img, name) {
     </div>
     <figure class="shot wide rv">
       <img src="assets/session.jpg" alt="Members watching a presentation during a club meeting" loading="lazy" onerror="dropShot(this)">
-      <figcaption>A Wednesday session in Room 1661. More on
+      <figcaption>Our first meeting, September 2, in Room 1661. More on
         <a class="ul" href="https://www.instagram.com/othsaiclub/?hl=en" target="_blank" rel="noopener">Instagram</a>.</figcaption>
     </figure>
 
@@ -202,8 +204,9 @@ function photoFallback(img, name) {
         <p>Weekly, right after school. Come late if you have to.</p></div>
       <div><span class="label">Where</span><div class="big">Room 1661</div>
         <p>Mrs. Dennison's room. She's our sponsor — dues and forms go to her at the meeting.</p></div>
-      <div><span class="label">First one</span><div class="big">Sept 2</div>
-        <p>Free pizza and candy. No permission slip and no dues needed for this one — just show up.</p></div>
+      <div><span class="label">Next one</span><div class="big" id="next-big">Sept 9</div>
+        <p>Turn up whenever — you don't need the permission slip or dues in hand to sit in on a
+          meeting first.</p></div>
     </div>
   </div>
 </section>
@@ -220,37 +223,37 @@ function photoFallback(img, name) {
       </div>
     </div>
     <ol class="weeks">
-      <li class="week rv">
+      <li class="week rv" data-date="2026-09-02">
         <span class="label">Sept 2</span>
         <div><h3 class="d4">Kickoff</h3>
-          <p>Free pizza and candy. What the club does, who runs it, and how the two tracks work.
-            Pick the one you want. Nothing due, nothing to pay.</p></div>
+          <p>Pizza, candy, and a packed room. What the club does, who runs it, and how the two
+            tracks work. If you missed it, nothing is lost &mdash; week two starts from zero.</p></div>
       </li>
-      <li class="week rv">
+      <li class="week rv" data-date="2026-09-09">
         <span class="label">Sept 9</span>
         <div><h3 class="d4">Get set up</h3>
           <p>Python, Google Colab, and a GitHub account. Everyone trains and runs their first
             model before they leave the room.</p></div>
       </li>
-      <li class="week rv">
+      <li class="week rv" data-date="2026-09-16">
         <span class="label">Sept 16</span>
         <div><h3 class="d4">Tracks split</h3>
           <p>Research: how a neural network actually learns, gradient by gradient.
             Build: your first vibecoded app, shipped live.</p></div>
       </li>
-      <li class="week rv">
+      <li class="week rv" data-date="2026-09-23">
         <span class="label">Sept 23</span>
         <div><h3 class="d4">Pick your project</h3>
           <p>Research: choose the question you'll spend the semester on.
             Build: AI-assisted CAD, prompt to printable part.</p></div>
       </li>
-      <li class="week rv">
+      <li class="week rv" data-date="2026-09-30">
         <span class="label">Sept 30</span>
         <div><h3 class="d4">Work session</h3>
           <p>Heads-down building with officers on hand. Competition sign-ups open &mdash; this is
             when the shirt starts mattering.</p></div>
       </li>
-      <li class="week rv">
+      <li class="week rv" data-date="2026-10-07">
         <span class="label">Oct 7</span>
         <div><h3 class="d4">Show what you made</h3>
           <p>Everyone demos. Five minutes, no slides required. First look at what the club
@@ -515,7 +518,7 @@ function photoFallback(img, name) {
           built for.</p></details>
       <details><summary>Do I need my own laptop?</summary>
         <p>Bring one if you have one, since everything runs in the browser through Google Colab.
-          If you don't have a laptop, tell an officer at the first meeting and we'll sort
+          If you don't have a laptop, tell an officer at a meeting and we'll sort
           something out. It isn't a reason to skip joining.</p></details>
       <details><summary>What if I can't afford the dues?</summary>
         <p>Talk to Mrs. Dennison or any officer privately. Nobody gets turned away over $20 &mdash;

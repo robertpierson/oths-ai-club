@@ -232,6 +232,13 @@ section{padding:var(--sec) 0}
 .qr span{font:500 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
 .conn .who{margin-top:auto;padding-top:28px;color:var(--faint);font-size:13.5px}
 
+/* week states: past meetings recede, the next one is marked */
+.week.done{opacity:.42}
+.week.done .label:after{content:"  b7 done";letter-spacing:.06em}
+.week.next{border-left:2px solid var(--accent);padding-left:18px;margin-left:-20px}
+.week.next .label{color:var(--fg)}
+.week.next .label:after{content:"  b7 next";color:var(--accent);letter-spacing:.06em}
+
 /* ---------- faq: native <details>, no JS ---------- */
 .faq details{border-top:1px solid var(--rule)}
 .faq details:last-of-type{border-bottom:1px solid var(--rule)}

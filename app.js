@@ -32,6 +32,43 @@ var io = new IntersectionObserver(function (entries) {
 
 document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
 
+/* ---- schedule state ----
+   Marks past weeks as done and points the announcement bar at the next one, so
+   the page stops being stale the morning after a meeting. The bar ships with
+   the correct date hardcoded, so this only ever refines what is already right. */
+(function () {
+  var weeks = [].slice.call(document.querySelectorAll('.week[data-date]'));
+  if (!weeks.length) return;
+
+  // compare date-only, and treat a meeting as current until it has finished
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  var next = null;
+
+  weeks.forEach(function (el) {
+    var p = el.dataset.date.split('-');
+    var when = new Date(+p[0], p[1] - 1, +p[2]).getTime();
+    if (when < today) el.classList.add('done');
+    else if (!next) { next = el; el.classList.add('next'); }
+  });
+
+  if (!next) return;                       // season over: leave the hardcoded copy alone
+  var label = next.querySelector('.label').textContent.trim();
+  var title = next.querySelector('h3');
+  var body = next.querySelector('p');
+  var line = document.getElementById('ann-line');
+  var big = document.getElementById('next-big');
+
+  if (big) big.textContent = label;
+  if (line && title) {
+    var d = next.dataset.date.split('-');
+    var full = new Date(+d[0], d[1] - 1, +d[2]).toLocaleDateString('en-US',
+      { weekday: 'long', month: 'long', day: 'numeric' });
+    line.innerHTML = '<span class="num">' + full + '</span> — 2:45–3:15 PM, Room 1661. ' +
+      title.textContent.trim() + (body ? ': ' + body.textContent.trim().split('.')[0] + '.' : '');
+  }
+})();
+
 /* ---- background drift ----
    Background wordmarks and the badge move at a different rate to the page.
    Transform only, batched into one rAF per scroll, and skipped entirely when
